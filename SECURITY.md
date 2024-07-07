@@ -1,21 +1,7 @@
-# Security Policy
+## Support
 
-## Supported Versions
+For support or questions related to using the project, please refer to the [README](./README.md) or open an issue on GitHub.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Contact Information
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
-
-## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+For further information or inquiries, please contact me at [canlasbusiness@gmail.com](mailto:canlasbusiness@gmail.com).
