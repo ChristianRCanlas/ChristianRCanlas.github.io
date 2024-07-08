@@ -1,31 +1,44 @@
-CREATE PROCEDURE dbo.InsertNextDate
-AS
-BEGIN
-    SET NOCOUNT ON;
+create procedure dbo.InsertNewDate as
 
-    DECLARE @NextDate DATE;
+begin
+    set nocount on;
 
-    -- Calculate the next date to insert (tomorrow's date)
-    SET @NextDate = DATEADD(DAY, 1, (SELECT MAX(DateKey) FROM DateTable));
+    declare @NewDate date;
 
-    -- Ensure @NextDate does not exceed today's date
-    IF @NextDate <= GETDATE()
-    BEGIN
-        -- Insert the next date into DateTable
-        INSERT INTO DateTable (DateKey, DateFull, Year, Month, MonthName, Quarter, QuarterName, DayOfMonth, DayOfWeek, DayOfWeekName, IsWeekend, IsHoliday)
-        SELECT
-            @NextDate AS DateKey,
-            CONVERT(VARCHAR, @NextDate, 112) AS DateFull,
-            YEAR(@NextDate) AS Year,
-            MONTH(@NextDate) AS Month,
-            DATENAME(MONTH, @NextDate) AS MonthName,
-            DATEPART(QUARTER, @NextDate) AS Quarter,
-            'Q' + CAST(DATEPART(QUARTER, @NextDate) AS VARCHAR) AS QuarterName,
-            DAY(@NextDate) AS DayOfMonth,
-            DATEPART(WEEKDAY, @NextDate) AS DayOfWeek,
-            DATENAME(WEEKDAY, @NextDate) AS DayOfWeekName,
-            CASE WHEN DATEPART(WEEKDAY, @NextDate) IN (1, 7) THEN 1 ELSE 0 END AS IsWeekend,
-            0 AS IsHoliday; -- Adjust if you have holiday data to include
-    END;
-END;
-GO
+    -- Calculate new date.
+    set @NewDate = dateadd(day, 1, (select max(Date_Key) from ecomm));
+
+    -- Logic check to make sure @NewDate does not exceed the current date.
+    if @NewDate <= getdate()
+    begin   
+        -- Insert new date into dailydates table.
+        insert into dailydates (
+            Date_Key,
+            Exact_Date,
+            Year,
+            Month,
+            Month_Name,
+            Quarter,
+            Quarter_Name,
+            Day_of_Month,
+            Day_of_Week,
+            Day_of_Week_Name,
+            IsWeekend,
+            IsHoliday
+        )
+        select
+            @NewDate as Date_Key,
+            convert(varchar, @NewDate, 112) as Exact_Date,
+            Year,
+            Month,
+            Month_Name,
+            Quarter,
+            Quarter_Name,
+            Day_of_Month,
+            Day_of_Week,
+            Day_of_Week_Name,
+            IsWeekend,
+            IsHoliday
+    end;
+end;
+go

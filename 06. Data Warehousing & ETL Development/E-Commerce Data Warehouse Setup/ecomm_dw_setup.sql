@@ -1,45 +1,27 @@
--- Archived Products Table
--- Active Product Table
+-- Create database.
+create database ecomm;
 
--- Customer Information Table
--- Historical 5-Year Customer Churn Data
--- Rolling 5-Year Customer Churn Data
-
--- Historical 5-Year Sales Orders Table
--- Rolling 5-Year Sales Orders Table
-
--- Historical 5-Year Sales Order Lines Table
--- Rolling 5-Year Sales Order Lines Table
-
--- Historical Payments Table
--- Rolling 5-Year Payments Table
-
--- Archived Product Review Data
--- Product Review Data
-
--- Historical Promotion Data
--- Active Promotion Data
-
--- Historical Shipment Data
--- Rolling 5-Year Shipping Data
-
-
--- Date Table
--- Create a new table named DateTable
-CREATE TABLE DateTable (
-    DateKey DATE PRIMARY KEY,
-    DateFull TEXT,
-    Year INT,
-    Month INT,
-    MonthName VARCHAR(20),
-    Quarter INT,
-    QuarterName VARCHAR(10),
-    DayOfMonth INT,
-    DayOfWeek INT,
-    DayOfWeekName VARCHAR(20),
-    IsWeekend BIT,
-    IsHoliday BIT
+-- Daily Date Table: refreshes daily with stored procedure.
+create table dailydates (
+    Date_Key date primary key,
+    Exact_Date text,
+    Year int,
+    Month int,
+    Month_Name varchar(20),
+    Quarter int,
+    Quarter_Name varchar(20),
+    Day_of_Month int,
+    Day_of_Week int,
+    Day_of_Week_Name varchar(20),
+    IsWeekend bit,
+    IsHoliday bit
 );
+
+-- In progress need to convert query to lower case
+
+
+-- Truncate the DateTable to remove existing data
+TRUNCATE TABLE DateTable;
 
 -- Insert data into the DateTable using a recursive CTE to generate dates
 WITH DateRange AS (
@@ -66,4 +48,33 @@ SELECT
 FROM DateRange
 OPTION (MAXRECURSION 0); -- Allow unlimited recursion depth (use with caution)
 
+
+
+
+
+
+-- Archived Products Table
+-- Active Product Table
+
+-- Customer Information Table
+-- Historical 5-Year Customer Churn Data
+-- Rolling 5-Year Customer Churn Data
+
+-- Historical 5-Year Sales Orders Table
+-- Rolling 5-Year Sales Orders Table
+
+-- Historical 5-Year Sales Order Lines Table
+-- Rolling 5-Year Sales Order Lines Table
+
+-- Historical Payments Table
+-- Rolling 5-Year Payments Table
+
+-- Archived Product Review Data
+-- Product Review Data
+
+-- Historical Promotion Data
+-- Active Promotion Data
+
+-- Historical Shipment Data
+-- Rolling 5-Year Shipping Data
 
