@@ -1,0 +1,260 @@
+Metadata-Version: 2.1
+Name: scikit-hts
+Version: 0.5.12
+Summary: Hierarchical Time Series forecasting
+Home-page: UNKNOWN
+Author: Carlo Mazzaferro
+Author-email: carlo.mazzaferro@gmail.com
+License: UNKNOWN
+Keywords: scikit-hts
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: numpy (>=1.17.4)
+Requires-Dist: pandas (>=0.25.3)
+Requires-Dist: scipy (>=1.3.2)
+Requires-Dist: scikit-learn (>=0.21.3)
+Requires-Dist: statsmodels (>=0.12.0)
+Requires-Dist: tqdm (>=4.43)
+Provides-Extra: all
+Requires-Dist: numpy (>=1.17.4); extra == 'all'
+Requires-Dist: pandas (>=0.25.3); extra == 'all'
+Requires-Dist: fbprophet (==0.7.1); extra == 'all'
+Requires-Dist: pystan (<3.0); extra == 'all'
+Requires-Dist: scipy (>=1.3.2); extra == 'all'
+Requires-Dist: scikit-learn (>=0.21.3); extra == 'all'
+Requires-Dist: statsmodels (>=0.12.0); extra == 'all'
+Requires-Dist: folium (==0.10.0); extra == 'all'
+Requires-Dist: h3 (==3.4.3); extra == 'all'
+Requires-Dist: pmdarima (>=1.8.0); extra == 'all'
+Requires-Dist: tqdm (==4.43); extra == 'all'
+Requires-Dist: distributed (==2021.3.0); extra == 'all'
+Requires-Dist: dask (==2021.3.0); extra == 'all'
+Provides-Extra: auto_arima
+Requires-Dist: pmdarima (>=1.8.0); extra == 'auto_arima'
+Provides-Extra: dev
+Requires-Dist: sphinx-rtd-theme (==0.4.3); extra == 'dev'
+Requires-Dist: numpydoc (==0.9.1); extra == 'dev'
+Requires-Dist: numpy (>=1.17.4); extra == 'dev'
+Requires-Dist: pandas (>=0.25.3); extra == 'dev'
+Requires-Dist: scipy (>=1.3.2); extra == 'dev'
+Requires-Dist: scikit-learn (>=0.21.3); extra == 'dev'
+Requires-Dist: pmdarima (>=1.8.0); extra == 'dev'
+Requires-Dist: statsmodels (>=0.12.0); extra == 'dev'
+Requires-Dist: tqdm (==4.43); extra == 'dev'
+Requires-Dist: pip (==18.1); extra == 'dev'
+Requires-Dist: bump2version (==1.0.1); extra == 'dev'
+Requires-Dist: wheel (==0.32.1); extra == 'dev'
+Requires-Dist: flake8 (==3.8.4); extra == 'dev'
+Requires-Dist: black (==19.10b0); extra == 'dev'
+Requires-Dist: isort (==5.2.1); extra == 'dev'
+Requires-Dist: coverage (==4.5.1); extra == 'dev'
+Requires-Dist: twine (==1.12.1); extra == 'dev'
+Provides-Extra: distributed
+Requires-Dist: distributed (==2021.3.0); extra == 'distributed'
+Requires-Dist: dask (==2021.3.0); extra == 'distributed'
+Provides-Extra: geo
+Requires-Dist: folium (==0.10.0); extra == 'geo'
+Requires-Dist: h3 (==3.4.3); extra == 'geo'
+Provides-Extra: prophet
+Requires-Dist: fbprophet (==0.7.1); extra == 'prophet'
+Requires-Dist: pystan (<3.0); extra == 'prophet'
+Provides-Extra: test
+Requires-Dist: pytest (==6.2.1); extra == 'test'
+Requires-Dist: pytest-cov (==2.10.1); extra == 'test'
+Requires-Dist: pytest-runner (==5.2); extra == 'test'
+
+##########
+scikit-hts
+##########
+
+Hierarchical Time Series with a familiar API. This is the result from not having found any good implementations
+of HTS on-line, and my work in the mobility space while working at Circ (acquired by Bird scooters).
+
+My work on this is purely out of passion, so contributions are always
+welcomed. You can also buy me a coffee if you'd like:
+
+
+     ETH / BSC Address:  ``0xbF42b9c8F7B69D52b8b986AA4E0BAc6838Af6698``
+
+
+.. image:: https://github.com/carlomazzaferro/scikit-hts/workflows/main%20workflow/badge.svg?branch=master
+    :target: https://github.com/carlomazzaferro/scikit-hts/actions
+
+.. image:: https://badge.fury.io/py/scikit-hts.svg
+    :target: https://badge.fury.io/py/scikit-hts
+
+.. image:: https://readthedocs.org/projects/racket/badge/?version=latest
+    :target: https://racket.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+
+.. image:: https://codecov.io/gh/carlomazzaferro/scikit-hts/branch/master/graph/badge.svg?token=K4OAC8C51T
+    :target: https://codecov.io/gh/carlomazzaferro/scikit-hts
+    :alt: Coverage
+
+.. image:: https://pepy.tech/badge/scikit-hts/month
+     :target: https://pepy.tech/project/scikit-hts/month
+     :alt: Downloads/Month
+
+.. image:: https://img.shields.io/badge/join-us%20on%20slack-gray.svg?longCache=true&logo=slack&colorB=brightgreen
+    :target: https://join.slack.com/t/scikit-hts/shared_invite/zt-d5is54bp-iOeagm7Jv68ZTkjk_zezrA
+    :alt: Slack
+
+
+* `MIT License`_
+* Documentation: https://scikit-hts.readthedocs.io/en/latest/
+
+.. _`MIT License`: https://github.com/carlomazzaferro/scikit-hts/blob/master/LICENSE
+
+Overview
+--------
+
+Building on the excellent work by Hyndman [1]_, we developed this package in order to provide a python implementation
+of general hierarchical time series modeling.
+
+
+.. [1] `Forecasting Principles and Practice. Rob J Hyndman and George Athanasopoulos. Monash University, Australia <https://otexts.com/fpp2/>`_.
+
+.. note:: **STATUS**: alpha. Active development, but breaking changes may come.
+
+
+Features
+--------
+
+* Supported and tested on ``python 3.6``, ``python 3.7`` and ``python 3.8``
+* Implementation of Bottom-Up, Top-Down, Middle-Out, Forecast Proportions, Average Historic Proportions,
+  Proportions of Historic Averages and OLS revision methods
+* Support for representations of hierarchical and grouped time series
+* Support for a variety of underlying forecasting models, inlcuding: SARIMAX, ARIMA, Prophet, Holt-Winters
+* Scikit-learn-like API
+* Geo events handling functionality for geospatial data, including visualisation capabilities
+* Static typing for a nice developer experience
+* Distributed training & Dask integration: perform training and prediction in parallel or in a cluster with Dask
+
+Examples
+--------
+
+You can find code usages here: https://github.com/carlomazzaferro/scikit-hts-examples
+
+Roadmap
+-------
+
+* More flexible underlying modeling support
+    * [P] AR, ARIMAX, VARMAX, etc
+    * [P] Bring-Your-Own-Model
+    * [P] Different parameters for each of the models
+* Decoupling reconciliation methods from forecast fitting
+    * [W] Enable to use the reconciliation methods with pre-fitted models
+
+| **P**: Planned
+| **W**: WIP
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+
+=======
+History
+=======
+
+0.1.0 (2020-01-02)
+------------------
+
+* First release on PyPI.
+
+0.2.0 (2018-02-13)
+------------------
+
+* Major feature implementation and documentation
+* Static typing
+* Testing - 44% coverage
+
+
+0.2.3 (2020-03-28)
+------------------
+
+* Testing up to 75%
+* Exogenous variable support
+* Extensive docs
+
+
+0.3.0 (2020-03-28)
+------------------
+
+* Parallel and distributed training
+
+
+0.4.0 (2020-03-28)
+------------------
+
+* Testing for all reconciliation methods, line coverage > 80%
+
+
+0.4.1 (2020-03-28)
+------------------
+
+* Python 3.6 support
+
+
+0.5.2 (2020-03-28)
+------------------
+
+* Added support for no revision, thanks @ryanvolpi
+* Added multiple example at https://github.com/carlomazzaferro/scikit-hts-examples, thanks @vtoliveira
+* Logging fixes and usability improvements
+
+
+0.5.3 (2021-02-23)
+------------------
+
+* Support for grouped time series, thanks to @noahsa! See: https://github.com/carlomazzaferro/scikit-hts/pull/51
+
+0.5.4 (2021-04-20)
+------------------
+
+* Fixed long-standing BU forcasting bug, thanks to @javierhuertay! See: https://github.com/carlomazzaferro/scikit-hts/issues/35
+
+
+0.5.6 (2021-04-20)
+------------------
+
+* Fixed input sanitization for convenience methods. See: https://github.com/carlomazzaferro/scikit-hts/issues/65
+
+0.5.7 (2021-05-30)
+------------------
+
+* Ability to build hierarchies from tabular data. Thanks @noahsa! See: https://github.com/carlomazzaferro/scikit-hts/pull/70
+
+0.5.8 (2021-05-30)
+------------------
+
+* Fix long-standing bugs related to transformers implementation. See: https://github.com/carlomazzaferro/scikit-hts/issues/66, https://github.com/carlomazzaferro/scikit-hts/issues/33, https://github.com/carlomazzaferro/scikit-hts/issues/38
+
+0.5.9 (2021-05-30)
+------------------
+
+* Fix long-standing bugs related to handling exogenous variables. See: https://github.com/carlomazzaferro/scikit-hts/issues/55
+
+0.5.10 (2021-06-5)
+------------------
+
+* Minor bug fix for transforms fixed: https://github.com/carlomazzaferro/scikit-hts/issues/66#issuecomment-855223892
+
+
+0.5.11 (2021-06-5)
+------------------
+
+* Further fix to exogenous variable handling, thanks to @wilfreddesert! See: https://github.com/carlomazzaferro/scikit-hts/issues/75
+
+
+
