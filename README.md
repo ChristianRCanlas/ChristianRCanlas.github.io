@@ -6,7 +6,7 @@ If you're interested in more of my data science-related personal projects, you c
 
 # Project Highlights
 
-1. 
+1. [Time-Series Decomposition](https://github.com/ChristianRCanlas/ChristianRCanlas.github.io/blob/main/07.%20R%20Markdown%20Documents/Time-Series%20Decomposition.Rmd)
 
     Notes:
 
