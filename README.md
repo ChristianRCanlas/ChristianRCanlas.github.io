@@ -1,4 +1,4 @@
-# Portfolio Highlights
+# My Other Portfolios
 If you're interested in more of my data visualization work, please visit my 
 [Tableau Public portfolio.](https://public.tableau.com/app/profile/christian.canlas/vizzes)
 
